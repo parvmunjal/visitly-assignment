@@ -1,0 +1,68 @@
+body.light {
+  background-color: #f8f9fa;
+  color: black;
+}
+
+body.dark {
+  background-color: #343a40;
+  color: white;
+}
+
+.navbar.light {
+  background-color: white;
+}
+
+.navbar.dark {
+  background-color: #343a40;
+}
+
+.navbar {
+  height: 100px; /* Direct height adjustment for the navbar */
+  line-height: 20px; /* Ensure content is vertically aligned */
+}
+
+.navbar .nav-link {
+  color: #605FED;
+  font-size: 0.8rem; /* Optional: Adjust font size */
+}
+
+.navbar .nav-link.text-white {
+  color: white;
+}
+
+.navbar .nav-link:hover {
+  color: #4b35c5;
+}
+
+.navbar .nav-link.text-white:hover {
+  color: #a4a4a4;
+}
+
+button {
+  background-color: #605FED;
+  border: none;
+  font-size: 0.8rem; /* Optional: Adjust font size */
+}
+
+button:hover {
+  background-color: #4d4cbf;
+}
+
+button:focus {
+  outline: none;
+}
+
+footer {
+  height: 160px; /* Direct height adjustment for the footer */
+  margin-top: auto;
+  line-height: 40px; /* Ensure content is vertically aligned */
+  font-size: 0.7rem; /* Optional: Adjust font size */
+  background-color: #605FED; 
+  color: #ffffff; 
+  text-align: center;
+}
+
+footer.text-muted {
+  background-color: #4b35c5;
+  color: #e0e0e0; 
+}

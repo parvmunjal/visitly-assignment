@@ -1,0 +1,44 @@
+/* Styling for the CreateUser component */
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  button {
+    background-color: #605FED;
+    border: none;
+    font-weight: 600;
+  }
+  
+  button:hover {
+    background-color: #4d4cbf;
+    transition: background-color 0.3s ease;
+  }
+  
+  .alert {
+    font-weight: 600;
+  }
+  
+  .form-label {
+    font-weight: 600;
+  }
+  
+  .form-control {
+    border-radius: 8px;
+  }
+  
+  .container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  

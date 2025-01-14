@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'; // Importing 'react-dom/client' instead of 'react-dom'
+import ReactDOM from 'react-dom/client'; 
 import './index.css';
 import App from './App';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 
 const root = ReactDOM.createRoot(document.getElementById('root')); // Use createRoot for React 18
 root.render(

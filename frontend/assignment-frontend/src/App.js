@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from './LandingPage'; // Adjust the path if needed
-import CreateUser from './CreateUser'; // Import CreateUser component
-import UserList from './UserList'; // Import UserList component
+import LandingPage from './LandingPage'; 
+import CreateUser from './CreateUser'; 
+import UserList from './UserList'; 
 import UpdateUser from './UpdateUser';
 
 

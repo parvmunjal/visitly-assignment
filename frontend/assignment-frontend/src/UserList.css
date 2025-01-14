@@ -1,0 +1,37 @@
+.user-list-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .user-card {
+    border: none;
+    border-radius: 15px;
+    background-color: #ffffff;
+    transition: transform 0.2s;
+  }
+  
+  .user-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .user-card .btn-outline-primary {
+    border-color: #605FED;
+    color: #605FED;
+  }
+  
+  .user-card .btn-outline-primary:hover {
+    background-color: #605FED;
+    color: #ffffff;
+  }
+  
+  .user-card .btn-outline-danger {
+    border-color: #ff5f57;
+    color: #ff5f57;
+  }
+  
+  .user-card .btn-outline-danger:hover {
+    background-color: #ff5f57;
+    color: #ffffff;
+  }
+  

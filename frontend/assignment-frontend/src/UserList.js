@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Container, Modal } from 'react-bootstrap';
+import { Card, Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import Layout from './Layout';
+import './UserList.css'; // Import custom CSS for additional styling
 
 const UserList = () => {
   const [users, setUsers] = useState([]);
@@ -55,68 +57,61 @@ const UserList = () => {
   };
 
   return (
-    <Container className="mt-5">
-      <h2>User List</h2>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
+    <Layout>
+      <Container className="mt-5 user-list-container">
+        <h2 className="text-center mb-4 text-primary">User List</h2>
+        <Row>
           {users.map(user => (
-            <tr key={user.userId}>
-              <td>{user.userId}</td>
-              <td>{user.username}</td>
-              <td>{user.firstName}</td>
-              <td>{user.lastName}</td>
-              <td>{user.gender}</td>
-              <td>{user.email}</td>
-              <td>
-                <Button
-                  variant="warning"
-                  size="sm"
-                  onClick={() => handleUpdate(user.userId)}
-                  className="me-2"
-                >
-                  Update
-                </Button>
-                <Button
-                  variant="danger"
-                  size="sm"
-                  onClick={() => handleShowModal(user.userId)}
-                >
-                  Delete
-                </Button>
-              </td>
-            </tr>
+            <Col md={4} key={user.userId} className="mb-4">
+              <Card className="user-card shadow-lg">
+                <Card.Body>
+                  <Card.Title className="text-primary">{user.firstName} {user.lastName}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">{user.username}</Card.Subtitle>
+                  <Card.Text>
+                    <strong>Email:</strong> {user.email}
+                    <br />
+                    <strong>Gender:</strong> {user.gender}
+                  </Card.Text>
+                  <div className="d-flex justify-content-between">
+                    <Button
+                      variant="outline-primary"
+                      size="sm"
+                      onClick={() => handleUpdate(user.userId)}
+                    >
+                      Update
+                    </Button>
+                    <Button
+                      variant="outline-danger"
+                      size="sm"
+                      onClick={() => handleShowModal(user.userId)}
+                    >
+                      Delete
+                    </Button>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
           ))}
-        </tbody>
-      </Table>
+        </Row>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Deletion</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          Are you sure you want to delete this user?
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            Cancel
-          </Button>
-          <Button variant="danger" onClick={handleConfirmDelete}>
-            Delete
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </Container>
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Confirm Deletion</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Are you sure you want to delete this user?
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              Cancel
+            </Button>
+            <Button variant="danger" onClick={handleConfirmDelete}>
+              Delete
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </Container>
+    </Layout>
   );
 };
 
