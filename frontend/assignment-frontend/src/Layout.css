@@ -3,27 +3,25 @@ body.light {
   color: black;
 }
 
-body.dark {
-  background-color: #343a40;
-  color: white;
-}
-
 .navbar.light {
   background-color: white;
 }
 
-.navbar.dark {
-  background-color: #343a40;
+body.dark {
+  background-color: pink !important; /* Dark mode navbar pink */
 }
 
 .navbar {
-  height: 100px; /* Direct height adjustment for the navbar */
-  line-height: 20px; /* Ensure content is vertically aligned */
+  height: 100px; 
+  line-height: 20px; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
 }
 
 .navbar .nav-link {
   color: #605FED;
-  font-size: 0.8rem; /* Optional: Adjust font size */
+  font-size: 0.8rem;
 }
 
 .navbar .nav-link.text-white {
@@ -41,7 +39,8 @@ body.dark {
 button {
   background-color: #605FED;
   border: none;
-  font-size: 0.8rem; /* Optional: Adjust font size */
+  font-size: 0.8rem;
+  margin-left: auto; 
 }
 
 button:hover {
@@ -53,10 +52,7 @@ button:focus {
 }
 
 footer {
-  height: 160px; /* Direct height adjustment for the footer */
-  margin-top: auto;
-  line-height: 40px; /* Ensure content is vertically aligned */
-  font-size: 0.7rem; /* Optional: Adjust font size */
+  font-size: 0.7rem; 
   background-color: #605FED; 
   color: #ffffff; 
   text-align: center;
@@ -64,5 +60,10 @@ footer {
 
 footer.text-muted {
   background-color: #4b35c5;
-  color: #e0e0e0; 
+  color: #e0e0e0;
+}
+
+body.dark footer {
+  background-color: #343a40;  /* Dark mode footer background */
+  color: white;
 }

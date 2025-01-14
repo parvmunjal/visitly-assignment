@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
-    // Getters and Setters
+
     private Long userId;
 
     @NotBlank(message = "Username is required")

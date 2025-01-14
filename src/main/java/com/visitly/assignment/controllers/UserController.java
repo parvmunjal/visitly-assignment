@@ -1,7 +1,6 @@
 package com.visitly.assignment.controllers;
 
 import com.visitly.assignment.dtos.UserDTO;
-import com.visitly.assignment.entities.User;
 import com.visitly.assignment.payload.ApiResponse;
 import com.visitly.assignment.services.UserService;
 import jakarta.validation.Valid;

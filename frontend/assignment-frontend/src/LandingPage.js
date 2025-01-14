@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button, Container, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Layout from './Layout'; // Importing Layout component
+import Layout from './Layout'; 
 import './LandingPage.css';
 
 const LandingPage = () => {
   return (
     <Layout>
-      <Container className="text-center mt-5">
+      <Container className="text-center mt-2">
         <Row className="mb-5">
           <Col>
             <h1 className="display-3 text-primary mb-4">Welcome to the User Management App</h1>

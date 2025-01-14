@@ -19,17 +19,14 @@ const Layout = ({ children }) => {
           <Navbar.Brand href="/" className={theme === 'light' ? 'text-primary' : 'text-white'}>
             <strong>User Management App</strong>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarNav" />
-          <Navbar.Collapse id="navbarNav">
-            <Nav className="ml-auto">
-              <Nav.Link as={Link} to="/" className={theme === 'light' ? 'nav-link' : 'nav-link text-white'}>
-                Home
-              </Nav.Link>
-              <Button onClick={toggleTheme} variant={theme === 'light' ? 'outline-dark' : 'outline-light'}>
-                {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
-              </Button>
-            </Nav>
-          </Navbar.Collapse>
+          <Nav className="ml-auto">
+            <Button 
+              onClick={toggleTheme} 
+              variant={theme === 'light' ? 'outline-dark' : 'outline-light'} 
+              className="ml-auto">
+              {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+            </Button>
+          </Nav>
         </Container>
       </Navbar>
 

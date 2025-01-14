@@ -58,7 +58,7 @@ const UserList = () => {
 
   return (
     <Layout>
-      <Container className="mt-5 user-list-container">
+      <Container className="user-list-container">
         <h2 className="text-center mb-4 text-primary">User List</h2>
         <Row>
           {users.map(user => (

@@ -1,0 +1,30 @@
+.card {
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  body.dark .card {
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  .card-body {
+    padding: 2rem;
+  }
+  
+  form .form-control {
+    border-radius: 5px;
+    padding: 0.75rem;
+  }
+  
+  form .form-control:focus {
+    box-shadow: 0 0 5px rgba(96, 95, 237, 0.5);
+  }
+  
+  button {
+    border-radius: 5px;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+  
