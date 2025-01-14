@@ -1,16 +1,24 @@
 import React from 'react';
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Layout.css';
 
 const Layout = ({ children }) => {
   const [theme, setTheme] = React.useState('light');
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');  
+    navigate('/login');  
+  };
+
+  const isAuthenticated = localStorage.getItem('authToken') !== null;
 
   return (
     <div className={theme}>
@@ -26,6 +34,19 @@ const Layout = ({ children }) => {
               className="ml-auto">
               {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
             </Button>
+
+            {/* Show Login or Logout button */}
+            {!isAuthenticated ? (
+              <Link to="/login">
+                <Button variant="outline-primary" className="ml-3">
+                  Login
+                </Button>
+              </Link>
+            ) : (
+              <Button variant="outline-danger" className="ml-3" onClick={handleLogout}>
+                Logout
+              </Button>
+            )}
           </Nav>
         </Container>
       </Navbar>

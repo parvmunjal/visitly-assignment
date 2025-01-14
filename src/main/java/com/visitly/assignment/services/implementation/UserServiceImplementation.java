@@ -3,10 +3,12 @@ package com.visitly.assignment.services.implementation;
 import com.visitly.assignment.dtos.UserDTO;
 import com.visitly.assignment.entities.User;
 import com.visitly.assignment.exceptions.UserNotFoundException;
+import com.visitly.assignment.exceptions.UsernameAlreadyExistsException;
 import com.visitly.assignment.repositories.UserRepository;
 import com.visitly.assignment.services.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,11 +20,16 @@ public class UserServiceImplementation implements UserService {
     private UserRepository userRepository;
     @Autowired
     private ModelMapper modelMapper;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
+        if (userRepository.existsByUsername(userDTO.getUsername())) {
+            throw new UsernameAlreadyExistsException("Username is already taken. Please choose a different username.");
+        }
         User user = dtoToUser(userDTO);
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
         User savedUser = userRepository.save(user);
         return userToDTO(savedUser);
     }

@@ -1,0 +1,44 @@
+.login-container {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.login-card {
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 30px;
+    background-color: white;
+    margin-top: -80px;
+}
+
+.login-card h2 {
+    color: #605FED;
+    font-weight: bold;
+}
+
+.login-card .form-control {
+    border-radius: 4px;
+    border-color: #ddd;
+}
+
+.login-card .form-control:focus {
+    border-color: #605FED;
+}
+
+.login-card button {
+    background-color: #605FED;
+    border: none;
+}
+
+.login-card button:disabled {
+    background-color: #a3a3f0;
+}
+
+.login-card .text-center {
+    font-size: 14px;
+}
+
+.login-card button:hover {
+    background-color: #4a4ab9;
+}

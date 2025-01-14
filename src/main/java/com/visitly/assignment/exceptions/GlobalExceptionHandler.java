@@ -17,6 +17,11 @@ public class GlobalExceptionHandler {
         ApiResponse response = new ApiResponse("User not found!", false);
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
+    @ExceptionHandler(UsernameAlreadyExistsException.class)
+    public ResponseEntity<ApiResponse> handleUsernameexistsException(UsernameAlreadyExistsException ex){
+        ApiResponse response = new ApiResponse("User already exists with this username", false);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();

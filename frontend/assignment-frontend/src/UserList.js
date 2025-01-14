@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Layout from './Layout';
-import './UserList.css'; // Import custom CSS for additional styling
-
+import './UserList.css'; 
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -11,14 +10,33 @@ const UserList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchUsers();
-  }, []);
+    const token = localStorage.getItem('authToken');
+    console.log(token)
+    if (!token) {
+      navigate('/login');
+    } else {
+      fetchUsers(token);
+    }
+  }, [navigate]);
 
-  const fetchUsers = async () => {
+  const fetchUsers = async (token) => {
     try {
-      const response = await fetch('http://localhost:8080/api/users');
-      const data = await response.json();
-      setUsers(data);
+      const response = await fetch('http://localhost:8080/api/users', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      
+      console.log("hiii")
+      if (response.ok) {
+        const data = await response.json();
+        setUsers(data);
+      } else if (response.status === 401) {
+        localStorage.removeItem('authToken');
+        navigate('/login');
+      } else {
+        alert('Failed to fetch users. Please try again.');
+      }
     } catch (error) {
       console.error('Error fetching users:', error);
     }
@@ -39,13 +57,26 @@ const UserList = () => {
   };
 
   const handleConfirmDelete = async () => {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+
     try {
       const response = await fetch(`http://localhost:8080/api/users/${selectedUserId}`, {
         method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`, 
+        },
       });
 
       if (response.ok) {
         setUsers(users.filter(user => user.userId !== selectedUserId));
+      } else if (response.status === 401) {
+        alert('You are not authorized to delete this user. Please log in again.');
+        localStorage.removeItem('authToken');
+        navigate('/login');
       } else {
         alert('Failed to delete user. Please try again.');
       }

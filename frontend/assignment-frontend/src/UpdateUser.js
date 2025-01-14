@@ -12,14 +12,34 @@ const UpdateUser = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchUser();
-  }, []);
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      navigate('/login');
+    } else {
+      fetchUser(token);
+    }
+  }, [userId, navigate]);
 
-  const fetchUser = async () => {
+  const fetchUser = async (token) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/users/${userId}`);
-      const data = await response.json();
-      setUser(data);
+      const response = await fetch(`http://localhost:8080/api/users/${userId}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`, 
+        },
+      });
+      console.log("helloooo")
+      console.log(token)
+
+      if (response.ok) {
+        const data = await response.json();
+        setUser(data);
+      } else if (response.status === 401) {
+        localStorage.removeItem('authToken');
+        navigate('/login');
+      } else {
+        alert('Failed to fetch user data. Please try again.');
+      }
     } catch (error) {
       console.error('Error fetching user:', error);
     }
@@ -33,12 +53,22 @@ const UpdateUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+
     try {
       const response = await fetch(`http://localhost:8080/api/users/${userId}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
         body: JSON.stringify(user),
       });
+
       if (response.ok) {
         setLoading(false);
         setShowSuccessModal(true);
