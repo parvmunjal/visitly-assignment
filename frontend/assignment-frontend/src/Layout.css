@@ -1,6 +1,6 @@
 body.light {
   background-color: #f8f9fa;
-  color: black;
+  color: black; /* Default text color for light mode */
 }
 
 .navbar.light {
@@ -8,7 +8,12 @@ body.light {
 }
 
 body.dark {
-  background-color: pink !important; /* Dark mode navbar pink */
+  background-color: rgb(6, 3, 45); /* Dark mode background */
+  color: white; /* Default text color for dark mode */
+}
+
+.navbar.dark {
+  background-color: rgb(6, 3, 45);
 }
 
 .navbar {
@@ -22,6 +27,7 @@ body.dark {
 .navbar .nav-link {
   color: #605FED;
   font-size: 0.8rem;
+  margin-right: 10px;
 }
 
 .navbar .nav-link.text-white {
@@ -64,6 +70,16 @@ footer.text-muted {
 }
 
 body.dark footer {
-  background-color: #343a40;  /* Dark mode footer background */
+  background-color: black;
   color: white;
+}
+
+/* Add styles for cards in dark mode */
+body.dark .card-title, body.dark .card-text {
+  color: white; /* Ensure card text is readable in dark mode */
+}
+
+body.dark .card {
+  background-color: #444; /* Dark background for cards */
+  border-color: #333; /* Dark border for cards */
 }

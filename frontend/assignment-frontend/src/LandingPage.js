@@ -11,7 +11,7 @@ const LandingPage = () => {
         <Row className="mb-5">
           <Col>
             <h1 className="display-3 text-primary mb-4">Welcome to the User Management App</h1>
-            <p className="lead text-muted">Manage your users efficiently with easy-to-use features. Create, update, and view users seamlessly.</p>
+            <p>Manage your users efficiently with easy-to-use features. Create, update, and view users seamlessly.</p>
           </Col>
         </Row>
 

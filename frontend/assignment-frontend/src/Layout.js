@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Layout.css';
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = React.useState('light');
+  const [theme, setTheme] = React.useState(localStorage.getItem('theme') || 'light');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.className = theme; // Set the body class based on the theme
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -35,10 +39,9 @@ const Layout = ({ children }) => {
               {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
             </Button>
 
-            {/* Show Login or Logout button */}
             {!isAuthenticated ? (
               <Link to="/login">
-                <Button variant="outline-primary" className="ml-3">
+                <Button variant="outline-primary" className="ml-3" >
                   Login
                 </Button>
               </Link>
