@@ -64,7 +64,7 @@ const UserList = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:8080/api/users/${selectedUserId}`, {
+      const response = await fetch(`https://visitly-e43b463b8f2b.herokuapp.com/api/users/${selectedUserId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`, 

@@ -62,7 +62,7 @@ function SignupPage() {
         }
     
         try {
-            const response = await fetch('http://localhost:8080/auth/register', {
+            const response = await fetch('https://visitly-e43b463b8f2b.herokuapp.com/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

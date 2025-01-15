@@ -56,7 +56,7 @@ function LoginPage() {
                 const responseData = await response.json();
                 localStorage.setItem('authToken', responseData.token);
                 setLoading(false);
-
+                
                 navigate('/'); 
             } else {
                 const errorData = await response.json();

@@ -22,7 +22,7 @@ const UpdateUser = () => {
 
   const fetchUser = async (token) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/users/${userId}`, {
+      const response = await fetch(`https://visitly-e43b463b8f2b.herokuapp.com/api/users/${userId}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`, 
