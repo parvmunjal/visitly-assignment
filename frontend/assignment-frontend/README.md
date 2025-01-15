@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# User Management App - Full Stack Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+User Management App is a full-stack web application built with a Spring Boot backend and a React frontend. The app enables users to register, log in, and perfrom CRUD opeartions, ensuring smooth and responsive interactions.
+- **Live Application:** You can access the live application here: [User Management App](https://visitly-assignment.netlify.app)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Tech Stack
 
-### `npm start`
+- **Frontend:** React, React Bootstrap
+- **Backend:** Spring Boot, MySQL
+- **Deployment:**
+  - Frontend: [Netlify](https://www.netlify.com/)
+  - Backend: [Heroku](https://www.heroku.com/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **User Authentication & Authorization:**
+  - Secure user registration and login using JWT (JSON Web Tokens).
+  - Passwords are hashed with BCrypt for added security.
+  - Session management for user authentication.
 
-### `npm test`
+- **CRUD Operations:**
+  - Users can create, read, update, and delete users in a seamless manner.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Responsive Design:**
+  - The application is fully responsive, ensuring a great user experience on both desktop and mobile devices.
+  - It adapts to different screen sizes and provides an optimal layout on all devices.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend (Spring Boot)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/parvmunjal/visitly-assignment.git
+    cd backend
+    ```
+2. Set up your MySQL database and update the connection settings in `src/main/resources/application.properties` with your local database credentials.
+3. Run the Spring Boot application:
+    ```bash
+    ./mvnw spring-boot:run
+    ```
+    This will start the backend server on `http://localhost:8080`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend (React)
 
-### `npm run eject`
+1. Navigate to the `frontend` directory:
+    ```bash
+    cd frontend
+    ```
+2. Install the necessary dependencies:
+    ```bash
+    npm install
+    ```
+3. Run the React application:
+    ```bash
+    npm start
+    ```
+    This will start the frontend on `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## API Documentation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The backend exposes a set of RESTful APIs for interaction with the frontend:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **POST /auth/register** - Register a new user by providing necessary user details.
+- **POST /auth/login** - Authenticate an existing user and retrieve a JWT token.
+- **GET /users** - Fetch a list of all users in the system.
+- **GET /users/{userId}** - Retrieve a specific user by ID.
+- **PUT /users/{userId}** - Update an existing user's profile information.
+- **DELETE /users/{userId}** - Delete a user from the system.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+For more detailed API specifications, please refer to the backend codebase.
 
-## Learn More
+## Security
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application ensures secure interactions with the use of:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **JWT Authentication:** Secure authentication using JSON Web Tokens for user login and session management.
+- **BCrypt Password Hashing:** All user passwords are hashed using BCrypt before being stored in the database, ensuring password security.
+- **Spring Security:** The backend is secured using Spring Security for robust protection against unauthorized access.
 
-### Code Splitting
+## Error Handling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The application provides detailed error handling to ensure smooth user experience:
 
-### Analyzing the Bundle Size
+- **Backend:** Graceful error responses are returned for failed API requests.
+- **Frontend:** Proper error messages are displayed in the UI in case of failed actions or server errors.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Deployment
 
-### Making a Progressive Web App
+- The **frontend** is deployed and hosted on [Netlify](https://visitly-frontend.netlify.app/).
+- The **backend** is deployed and hosted on [Heroku](https://visitly-backend.herokuapp.com/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Testing
 
-### Advanced Configuration
+Integration and unit tests are implemented using JUnit and Mockito to verify the application's functionality. Tests cover user registration, login, and API responses, ensuring that all endpoints behave as expected.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contribution
 
-### Deployment
+We welcome contributions to this project! To contribute, please follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Fork the repository to your own GitHub account.
+2. Create a new branch for your feature (`git checkout -b feature-branch`).
+3. Make the necessary changes and commit them (`git commit -am 'Add new feature'`).
+4. Push the changes to your fork (`git push origin feature-branch`).
+5. Submit a pull request to the main repository.
 
-### `npm run build` fails to minify
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
