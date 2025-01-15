@@ -1,6 +1,6 @@
 body.light {
   background-color: #f8f9fa;
-  color: black; /* Default text color for light mode */
+  color: black;
 }
 
 .navbar.light {
@@ -8,8 +8,8 @@ body.light {
 }
 
 body.dark {
-  background-color: rgb(6, 3, 45); /* Dark mode background */
-  color: white; /* Default text color for dark mode */
+  background-color: rgb(6, 3, 45);
+  color: white;
 }
 
 .navbar.dark {
@@ -74,12 +74,41 @@ body.dark footer {
   color: white;
 }
 
-/* Add styles for cards in dark mode */
 body.dark .card-title, body.dark .card-text {
-  color: white; /* Ensure card text is readable in dark mode */
+  color: white;
 }
 
 body.dark .card {
-  background-color: #444; /* Dark background for cards */
-  border-color: #333; /* Dark border for cards */
+  background-color: #444;
+  border-color: #333;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.navbar .ml-auto {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.navbar .btn-sm {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.navbar .mr-2 {
+  margin-right: 0.5rem;
 }

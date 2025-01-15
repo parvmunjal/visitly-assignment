@@ -1,37 +1,20 @@
-.user-list-container {
-    background-color: #f8f9fa;
-    padding: 2rem;
-    border-radius: 10px;
-  }
-  
-  .user-card {
-    border: none;
-    border-radius: 15px;
-    background-color: #ffffff;
-    transition: transform 0.2s;
-  }
-  
-  .user-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .user-card .btn-outline-primary {
-    border-color: #605FED;
-    color: #605FED;
-  }
-  
-  .user-card .btn-outline-primary:hover {
-    background-color: #605FED;
-    color: #ffffff;
-  }
-  
-  .user-card .btn-outline-danger {
-    border-color: #ff5f57;
-    color: #ff5f57;
-  }
-  
-  .user-card .btn-outline-danger:hover {
-    background-color: #ff5f57;
-    color: #ffffff;
-  }
-  
+/* Add conditional styling for modal based on theme */
+.modal-content {
+  background-color: inherit; /* Ensure the modal inherits the theme's background */
+}
+
+body.dark .modal-content {
+  background-color: #444; /* Dark background for modal in dark mode */
+}
+
+body.dark .modal-header, 
+body.dark .modal-body, 
+body.dark .modal-footer {
+  color: white; /* Ensure text is white in dark mode */
+}
+
+body.light .modal-header, 
+body.light .modal-body, 
+body.light .modal-footer {
+  color: black; /* Ensure text is black in light mode */
+}

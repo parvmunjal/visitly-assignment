@@ -1,6 +1,7 @@
+/* Base styles */
 .login-container {
-    background-color: #f7f7f7;
     padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .login-card {
@@ -8,18 +9,19 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 30px;
-    background-color: white;
     margin-top: -80px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .login-card h2 {
-    color: #605FED;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .login-card .form-control {
     border-radius: 4px;
     border-color: #ddd;
+    transition: border-color 0.3s ease;
 }
 
 .login-card .form-control:focus {
@@ -29,6 +31,7 @@
 .login-card button {
     background-color: #605FED;
     border: none;
+    transition: background-color 0.3s ease;
 }
 
 .login-card button:disabled {
@@ -40,5 +43,39 @@
 }
 
 .login-card button:hover {
+    background-color: #4a4ab9;
+}
+
+/* Dark mode styles */
+body.dark-mode .login-container {
+    background-color: #2e2e2e;
+    color: #ffffff;
+}
+
+body.dark-mode .login-card {
+    background-color: #3c3c3c;
+    border-color: #555555;
+}
+
+body.dark-mode .login-card h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .login-card .form-control {
+    background-color: #555555;
+    color: #ffffff;
+    border-color: #777777;
+}
+
+body.dark-mode .login-card .form-control:focus {
+    border-color: #605FED;
+    background-color: #444444;
+}
+
+body.dark-mode .login-card button {
+    background-color: #605FED;
+}
+
+body.dark-mode .login-card button:hover {
     background-color: #4a4ab9;
 }

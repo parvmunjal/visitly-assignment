@@ -25,28 +25,28 @@ const Layout = ({ children }) => {
   const isAuthenticated = localStorage.getItem('authToken') !== null;
 
   return (
-    <div className={theme}>
+    <div className={`d-flex flex-column min-vh-100 ${theme}`}>
       <Navbar bg={theme === 'light' ? 'light' : 'dark'} expand="lg" className="sticky-top shadow-sm">
         <Container>
           <Navbar.Brand href="/" className={theme === 'light' ? 'text-primary' : 'text-white'}>
             <strong>User Management App</strong>
           </Navbar.Brand>
-          <Nav className="ml-auto">
+          <Nav className="ml-auto d-flex flex-nowrap">
             <Button 
               onClick={toggleTheme} 
               variant={theme === 'light' ? 'outline-dark' : 'outline-light'} 
-              className="ml-auto">
+              className="ml-auto btn-sm mr-2">
               {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
             </Button>
 
             {!isAuthenticated ? (
               <Link to="/login">
-                <Button variant="outline-primary" className="ml-3" >
+                <Button variant="outline-primary" className="ml-3 btn-sm mr-2">
                   Login
                 </Button>
               </Link>
             ) : (
-              <Button variant="outline-danger" className="ml-3" onClick={handleLogout}>
+              <Button variant="outline-danger" className="ml-3 btn-sm mr-2" onClick={handleLogout}>
                 Logout
               </Button>
             )}
@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
         </Container>
       </Navbar>
 
-      <div className="content">{children}</div>
+      <div className="content flex-grow-1">{children}</div>
 
       <footer className="mt-5">
         <Container className="text-center">

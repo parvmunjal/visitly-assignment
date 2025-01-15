@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Card, Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Layout from './Layout';
-import './UserList.css'; 
+import './UserList.css';
+
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState(null);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('authToken');
-    console.log(token)
     if (!token) {
       navigate('/login');
     } else {
@@ -26,8 +27,6 @@ const UserList = () => {
           'Authorization': `Bearer ${token}`,
         },
       });
-      
-      console.log("hiii")
       if (response.ok) {
         const data = await response.json();
         setUsers(data);
@@ -127,9 +126,9 @@ const UserList = () => {
 
         <Modal show={showModal} onHide={handleCloseModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Confirm Deletion</Modal.Title>
+            <Modal.Title className={theme === 'dark' ? 'text-white' : ''}>Confirm Deletion</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className={theme === 'dark' ? 'text-white' : ''}>
             Are you sure you want to delete this user?
           </Modal.Body>
           <Modal.Footer>
