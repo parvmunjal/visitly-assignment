@@ -21,7 +21,7 @@ const UserList = () => {
 
   const fetchUsers = async (token) => {
     try {
-      const response = await fetch('http://localhost:8080/api/users', {
+      const response = await fetch('https://visitly-e43b463b8f2b.herokuapp.com/api/users', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
