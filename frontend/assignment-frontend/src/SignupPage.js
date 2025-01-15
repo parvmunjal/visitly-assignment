@@ -71,7 +71,6 @@ function SignupPage() {
             });
     
             if (response.ok) {
-                const responseData = await response.json();
                 setSuccessMessage('Registration successful!');
                 setLoading(false);
                 setShowModal(true); 
